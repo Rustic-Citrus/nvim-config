@@ -944,13 +944,22 @@ require('lazy').setup({
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
   },
+
+  -- NOTE: To see LaTeX blocks in Markdown files using render-markdown.nvim,
+  -- tree-sitter-cli needs to be installed on the system path for
+  -- nvim-treesitter to install the latex parser. You can install
+  -- tree-sitter-cli globally using `npm install -g tree-sitter-cli`. Then,
+  -- add to the path in the user variables for nvim-treesitter. Additionally,
+  -- you need to add 'latex' to the 'ensure_installed' key of the 'opts'
+  -- directory below.
+  --
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'latex' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -996,18 +1005,18 @@ require('lazy').setup({
   -- Or use telescope!
   -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
   -- you can continue same window with `<space>sr` which resumes last telescope search
-  -- NOTE: Added the render-markdown.nvim plugin.
+  --
+  -- NOTE: Added the render-markdown.nvim plugin. You need to globally install
+  -- the 'pylatexenc' package for your machine. For that to be possible, you'll
+  -- also need to have a Python interpreter installed, PIP, and have all three
+  -- accessible via the path variable.
+  --
   {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
-    opts = {
-      latex = {
-        enabled = true,
-        renderer = 'dvisvgm',
-      },
-    },
+    opts = {},
   },
 }, {
   ui = {
