@@ -176,6 +176,10 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+-- NOTE: Set a line to appear at 81 characters to get a sense of when to add a
+-- line break.
+vim.opt.colorcolumn = '81'
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -1018,6 +1022,19 @@ require('lazy').setup({
     ---@type render.md.UserConfig
     opts = {},
   },
+
+  -- NOTE: Added the VimTeX plugin. The PDF viewer that I went for is Sioyek, but
+  -- the vimtex_view_method can just be updated if a different viewer is
+  -- installed.
+  {
+    'lervag/vimtex',
+    lazy = false, -- we don't want to lazy load VimTeX
+    -- tag = "v2.15", -- uncomment to pin to a specific release
+    init = function()
+      -- VimTeX configuration goes here, e.g.
+      vim.g.vimtex_view_method = 'sioyek'
+    end,
+  },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
@@ -1042,3 +1059,6 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- NOTE: Set bold text in Markdown to appear as bold.
+vim.api.nvim_set_hl(0, '@markup.strong.markdown', { bold = true, fg = '#FFD700', bg = '#FF0000' })
