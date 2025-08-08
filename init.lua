@@ -1038,6 +1038,19 @@ require('lazy').setup({
       vim.g.vimtex_view_method = 'sioyek'
     end,
   },
+
+  -- NOTE: Added the nvim-tree plugin for file tree viewing.
+  {
+    'nvim-tree/nvim-tree.lua',
+    version = '*',
+    lazy = false,
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      require('nvim-tree').setup {}
+    end,
+  },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
