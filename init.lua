@@ -149,7 +149,7 @@ vim.o.splitbelow = true
 --  It is very similar to `vim.o` but offers an interface for conveniently interacting with tables.
 --   See `:help lua-options`
 --   and `:help lua-options-guide`
-vim.o.list = true
+vim.o.list = false
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
@@ -179,6 +179,9 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- NOTE: Set a line to appear at 81 characters to get a sense of when to add a
 -- line break.
 vim.opt.colorcolumn = '81'
+
+-- NOTE: Set the line to break at complete words rather than in the middle of a word.
+vim.o.linebreak = true 
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
