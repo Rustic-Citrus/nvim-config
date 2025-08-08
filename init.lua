@@ -181,7 +181,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.opt.colorcolumn = '81'
 
 -- NOTE: Set the line to break at complete words rather than in the middle of a word.
-vim.o.linebreak = true 
+vim.o.linebreak = true
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
