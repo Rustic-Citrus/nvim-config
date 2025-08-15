@@ -1,0 +1,45 @@
+# To run this file, open a terminal and execute the command:
+# winget configure -f .\config\configuration.winget
+
+properties:
+  # Specifies the version of the configuration file format.
+  configurationVersion: 0.2.0
+  resources:
+    # This section defines the resources to be configured.
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      # This is the Desired State Configuration (DSC) resource for managing packages with WinGet.
+      directives:
+        description: Install Chocolatey package manager
+        # This allows WinGet to use prerelease versions of the DSC resource if necessary.
+        allowPrerelease: true
+      settings:
+        # The unique identifier for the package in the WinGet repository.
+        id: chocolatey.chocolatey
+        # The source repository where the package is located.
+        source: winget
+        # Ensures that the package is present on the system.
+        ensure: present
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install MiKTeX LaTeX compiler
+	allowPrerelease: true
+      settings:
+        id: MiKTeX.MiKTeX
+	source: winget
+	ensure: present
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install MiKTeX LaTeX compiler
+	allowPrerelease: true
+      settings:
+        id: MiKTeX.MiKTeX
+	source: winget
+	ensure: present
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install NeoVim
+	allowPrerelease: true
+      settings:
+        id: Neovim.Neovim
+	source: winget
+	ensure: present
