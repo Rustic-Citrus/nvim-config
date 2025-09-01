@@ -1071,6 +1071,3 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
-
--- NOTE: Set bold text in Markdown to appear as bold.
-vim.api.nvim_set_hl(0, '@markup.strong.markdown', { bold = true, fg = '#FFD700', bg = '#FF0000' })
