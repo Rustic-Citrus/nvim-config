@@ -176,10 +176,6 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
--- NOTE: Set a line to appear at 81 characters to get a sense of when to add a
--- line break.
-vim.opt.colorcolumn = '81'
-
 -- NOTE: Set the line to break at complete words rather than in the middle of a word.
 vim.o.linebreak = true
 
